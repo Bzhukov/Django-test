@@ -1,6 +1,8 @@
 from django.urls import path
 
-app_name = 'pages'
+from .views import main
+
+app_name = 'telegram-login'
 
 urlpatterns = [
     path('', main, name='main'),
