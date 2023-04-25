@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['bzhukovaru.azurewebsites.net']
 # Application definition
 
 INSTALLED_APPS = [
+    'telegram_login',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
