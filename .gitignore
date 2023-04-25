@@ -1,2 +1,3 @@
 /venv/
 /bzhukovaru/db.sqlite3
+/.env
