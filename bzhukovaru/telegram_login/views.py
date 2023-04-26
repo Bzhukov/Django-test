@@ -8,7 +8,12 @@ bot_token = settings.TELEGRAM_BOT_TOKEN
 redirect_url = settings.TELEGRAM_LOGIN_REDIRECT_URL
 
 def main(request):
-    return render(request, 'main.html')
+    if request.GET:
+        data=request.GET.get('hash')
+    context = {
+        'data':data
+    }
+    return render(request, 'main.html',context)
 
 def login(request):
     if request.GET:
