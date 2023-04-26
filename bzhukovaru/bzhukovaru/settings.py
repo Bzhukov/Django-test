@@ -17,7 +17,7 @@ SECRET_KEY = 'django-insecure-pj7najeqq@*qzx8e@@&82z#y0_hef&$ei#tuo#x8cg8s^_$ezv
 DEBUG = True
 
 # ALLOWED_HOSTS = ['bzhukovaru.azurewebsites.net']
-# CSRF_TRUSTED_ORIGINS = ['https://bzhukovaru.azurewebsites.net/']
+CSRF_TRUSTED_ORIGINS = ['https://bzhukovaru.azurewebsites.net/']
 ALLOWED_HOSTS = ['*']
 CORS_ALLOW_CREDENTIALS = True
 
