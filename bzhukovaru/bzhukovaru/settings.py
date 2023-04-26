@@ -27,6 +27,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 # Application definition
 
 INSTALLED_APPS = [
+    'corsheaders',
     'telegram_login',
     'django_telegram_login',
     'django.contrib.admin',
@@ -40,7 +41,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.telegram',
-    'corsheaders'
+
 ]
 
 MIDDLEWARE = [
