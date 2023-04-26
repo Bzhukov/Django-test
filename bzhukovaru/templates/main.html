@@ -2,24 +2,15 @@
 <html>
   <head>
     <title>Telegram Login Widget Example</title>
-    <!-- подключаем скрипт Telegram Login Widget -->
-    <script async src="https://telegram.org/js/telegram-widget.js?15" data-telegram-login="bzhukovaru_bot" data-size="large" data-auth-url="https://bzhukovaru.azurewebsites.net/login"></script>
-
-      <script>
-      // получаем CSRF-токен из input
-      const csrfToken = "{{csrf_token}}";
-
-      // добавляем CSRF-токен к запросу на YOUR_AUTH_URL
-      const authUrl = new URL("https://bzhukovaru.azurewebsites.net/login");
-      authUrl.searchParams.append('csrf_token', csrfToken);
-
-      // устанавливаем обновленный URL-адрес обработчика авторизации
-      document.querySelector('[data-auth-url]').setAttribute('data-auth-url', authUrl.toString());
-    </script>
   </head>
   <body>
   {{user}}
-    <!-- создаем div-элемент для виджета -->
-    <div class="telegram-login-button"></div>
+<script type="text/javascript">
+  function onTelegramAuth(user) {
+    alert('Logged in as ' + user.first_name + ' ' + user.last_name + ' (' + user.id + (user.username ? ', @' + user.username : '') + ')');
+  }
+</script>
+  <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-login="bzhukovaru_bot" data-size="medium" data-onauth="onTelegramAuth(user)" data-request-access="write"></script>
+
   </body>
 </html>
