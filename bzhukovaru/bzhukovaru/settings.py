@@ -19,7 +19,7 @@ DEBUG = True
 # ALLOWED_HOSTS = ['bzhukovaru.azurewebsites.net']
 CSRF_TRUSTED_ORIGINS = ['https://bzhukovaru.azurewebsites.net/']
 ALLOWED_HOSTS = ['*']
-CORS_ALLOW_CREDENTIALS = True
+
 
 CORS_ORIGIN_ALLOW_ALL = True
 
@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'allauth.socialaccount.providers.telegram'
+    'allauth.socialaccount.providers.telegram',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
