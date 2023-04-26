@@ -37,6 +37,8 @@ def login(request):
     #     username = request.POST.get('username')
     #     auth_date = request.POST.get('auth_date')
     #     hash = request.POST.get('hash')
+    if not payload:
+        payload='login'
     bot = telegram.Bot(token=bot_token)
     asyncio.run(bot.send_message(124987663, payload))
     return render(request, 'main.html')
