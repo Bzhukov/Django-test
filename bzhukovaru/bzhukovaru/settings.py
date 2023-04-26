@@ -35,6 +35,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.telegram'
 ]
 
 MIDDLEWARE = [
@@ -129,3 +134,10 @@ LOGIN_URL_REDIRECT = 'telegram-login:main'
 TELEGRAM_BOT_NAME = 'bzhukovaru_bot'
 TELEGRAM_BOT_TOKEN = '6062384373:AAE1v-WS0EVMvh8R9wn-BCtLIBZVgl-kTrg'
 TELEGRAM_LOGIN_REDIRECT_URL = 'telegram-login:main'
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
+
+SOCIALACCOUNT_AUTO_SIGNUP = True

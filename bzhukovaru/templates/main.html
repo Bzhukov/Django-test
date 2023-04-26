@@ -11,6 +11,10 @@
 {{hash}}
 {{id}}
 {{first_name}}
+{% load socialaccount %}
+{% providers_media_js %}
+
+<button class="telegram-login-button" onclick="window.open('{% provider_login_url "telegram" %}', 'Telegram Login', 'height=600,width=800'); return false;">Telegram Login</button>
 
 </body>
 </html>

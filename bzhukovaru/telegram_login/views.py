@@ -15,7 +15,7 @@ def main(request):
         if request.GET.get('id'):
             data = request.GET.get('id')
     if request.POST.items():
-        data = request.POST.items()
+        data = request.POST
     print(data)
     bot = telegram.Bot(token=bot_token)
     asyncio.run(bot.send_message(124987663, data))
