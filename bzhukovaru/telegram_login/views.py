@@ -10,25 +10,20 @@ redirect_url = settings.TELEGRAM_LOGIN_REDIRECT_URL
 
 
 def main(request):
-    data = '111'
+    data = 'main'
     if request.GET:
         data = request.GET.get('id')
-    context = {
-        'data': data,
-        'META': request.META
-
-    }
-    print(request.content_params)
+    print(request.GET)
     bot = telegram.Bot(token=bot_token)
     asyncio.run(bot.send_message(124987663, data))
 
-    return render(request, 'main.html', context)
+    return render(request, 'main.html', )
 
 
 def login(request):
-    id = 0
-    first_name = '0'
+    data='login'
     if request.GET:
+        data=request.GET
         id = request.GET.get('id')
         first_name = request.GET.get('first_name')
         last_name = request.GET.get('last_name')
@@ -43,12 +38,5 @@ def login(request):
     #     auth_date = request.POST.get('auth_date')
     #     hash = request.POST.get('hash')
     bot = telegram.Bot(token=bot_token)
-    asyncio.run(bot.send_message(124987663, f"{id}, {first_name}"))
-    print(f"{id}, {first_name}")
-    context = {
-        'id': id,
-        'first_name': first_name,
-
-    }
-
-    return render(request, 'main.html', context)
+    asyncio.run(bot.send_message(124987663, data))
+    return render(request, 'main.html', data)
