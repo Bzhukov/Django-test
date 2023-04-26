@@ -43,7 +43,7 @@ def login(request):
         username = request.POST.get('username')
         auth_date = request.POST.get('auth_date')
         hash = request.POST.get('hash')
-    bot = telegram.Bot(token=settings.TELEGRAM_TOKEN)
+    bot = telegram.Bot(token=bot_token)
     asyncio.run(bot.send_message(124987663, f"{id}, {first_name}"))
     print(f"{id}, {first_name}")
     return f"{id}, {first_name}"
