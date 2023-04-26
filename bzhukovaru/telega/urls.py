@@ -1,11 +1,10 @@
-from django.urls import path, include
+from django.urls import path
 
 from .views import main, login
 
-app_name = 'telegram-login'
+app_name = 'telega'
 
 urlpatterns = [
-    path('accounts/', include('allauth.urls')),
     path('', main, name='main'),
     path('login/', login, name='login'),
-]
+    ]
