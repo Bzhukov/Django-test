@@ -140,7 +140,7 @@ SITE_ID = 1
 
 SOCIALACCOUNT_PROVIDERS = {
     'telegram': {
-        'TOKEN': os.getenv('SOCIAL_AUTH_TELEGRAM_KEY', default=None)
+        'TOKEN': '6062384373:AAE1v-WS0EVMvh8R9wn-BCtLIBZVgl-kTrg'
     }
 }
 
