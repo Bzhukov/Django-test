@@ -14,8 +14,12 @@ def main(request):
     data = '111'
     if request.GET:
         data=request.GET.get('hash')
+    if request.POST:
+        data = request.POST.get('hash')+' POST'
+
     context = {
-        'data':data
+        'data':data,
+
     }
     bot = telegram.Bot(token=bot_token)
     asyncio.run(bot.send_message(124987663, data))
