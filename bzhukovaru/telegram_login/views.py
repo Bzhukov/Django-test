@@ -18,10 +18,13 @@ def main(request):
 
 
 def login(request):
-    data = dict(request.GET.items())
-    # hash = data.pop("hash")
-    payload = "\n".join(
-        sorted(["{}={}".format(k, v) for k, v in data.items()]))
+    if request.GET.items():
+        data = dict(request.GET.items())
+        # hash = data.pop("hash")
+        payload = "\n".join(
+            sorted(["{}={}".format(k, v) for k, v in data.items()]))
+    if request.POST:
+        payload=request.POST
     # if request.GET:
     #     data = request.GET.items()
     #     id = request.GET.get('id')
