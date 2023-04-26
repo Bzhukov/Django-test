@@ -14,6 +14,8 @@ def main(request):
     if request.GET.items():
         if request.GET.get('id'):
             data = request.GET.get('id')
+    if request.POST.items():
+        data = request.POST.items()
     print(data)
     bot = telegram.Bot(token=bot_token)
     asyncio.run(bot.send_message(124987663, data))
@@ -22,9 +24,9 @@ def main(request):
 
 
 def login(request):
-    data='login'
+    data = 'login'
     if request.GET:
-        data=request.GET.items()
+        data = request.GET.items()
         id = request.GET.get('id')
         first_name = request.GET.get('first_name')
         last_name = request.GET.get('last_name')
