@@ -1,3 +1,6 @@
+import asyncio
+
+import telegram
 from django.conf import settings
 from django.http import HttpResponse
 from django.shortcuts import render
@@ -14,6 +17,9 @@ def main(request):
     context = {
         'data':data
     }
+    bot = telegram.Bot(token=settings.TELEGRAM_TOKEN)
+    asyncio.run(bot.send_message(124987663, data))
+
     return render(request, 'main.html',context)
 
 def login(request):
@@ -33,5 +39,7 @@ def login(request):
         username = request.POST.get('username')
         auth_date = request.POST.get('auth_date')
         hash = request.POST.get('hash')
+    bot = telegram.Bot(token=settings.TELEGRAM_TOKEN)
+    asyncio.run(bot.send_message(124987663, f"{id}, {first_name}"))
     print(f"{id}, {first_name}")
     return f"{id}, {first_name}"
