@@ -46,4 +46,8 @@ def login(request):
     bot = telegram.Bot(token=bot_token)
     asyncio.run(bot.send_message(124987663, f"{id}, {first_name}"))
     print(f"{id}, {first_name}")
-    return f"{id}, {first_name}"
+    context = {
+        'id':id,
+        'first_name':first_name
+    }
+    return render(request, 'main.html',context)
