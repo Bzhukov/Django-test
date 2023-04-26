@@ -16,6 +16,8 @@ def main(request):
     return render(request, 'main.html',context)
 
 def login(request):
+    id=0
+    first_name='0'
     if request.GET:
         id = request.GET.get('id')
         first_name=request.GET.get('first_name')
