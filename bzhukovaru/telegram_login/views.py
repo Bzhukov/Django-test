@@ -11,7 +11,7 @@ bot_token = settings.TELEGRAM_BOT_TOKEN
 redirect_url = settings.TELEGRAM_LOGIN_REDIRECT_URL
 
 def main(request):
-    data = ''
+    data = '111'
     if request.GET:
         data=request.GET.get('hash')
     context = {
