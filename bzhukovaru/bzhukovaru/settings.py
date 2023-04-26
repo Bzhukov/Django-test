@@ -29,7 +29,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'social_django',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.telegram',
+
 ]
 
 MIDDLEWARE = [
@@ -57,8 +62,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'social_django.context_processors.backends',
-                'social_django.context_processors.login_redirect'
+                'django.template.context_processors.request',
+
             ],
         },
     },
@@ -120,8 +125,18 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # SOCIAL_AUTH_TELEGRAM_SECRET = os.getenv('SOCIAL_AUTH_TELEGRAM_SECRET', default=None)
 
 AUTHENTICATION_BACKENDS = (
-    'social_core.backends.telegram.TelegramAuth',
-    'django.contrib.auth.backends.ModelBackend'
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
 )
-SOCIAL_AUTH_TELEGRAM_AUTH_EXTRA_ARGUMENTS = {'parse_mode': 'Markdown'}
-SOCIAL_AUTH_TELEGRAM_BOT_TOKEN =os.getenv('SOCIAL_AUTH_TELEGRAM_KEY', default=None)
+# SOCIAL_AUTH_TELEGRAM_AUTH_EXTRA_ARGUMENTS = {'parse_mode': 'Markdown'}
+# SOCIAL_AUTH_TELEGRAM_BOT_TOKEN =os.getenv('SOCIAL_AUTH_TELEGRAM_KEY', default=None)
+
+SITE_ID = 1
+
+SOCIALACCOUNT_PROVIDERS = {
+    'telegram': {
+        'TOKEN': os.getenv('SOCIAL_AUTH_TELEGRAM_KEY', default=None)
+    }
+}
+
+LOGIN_URL_REDIRECT = 'telegram-login:main'

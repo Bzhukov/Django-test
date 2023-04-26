@@ -6,9 +6,5 @@ from social_django.views import auth, complete
 urlpatterns = [
     path('', include('telegram_login.urls', namespace='social')),
     path('admin/', admin.site.urls),
-    path('auth/', auth, name='social_auth'),
-    path('auth/complete/', complete, name='social_complete'),
-    path('accounts/logout/', LogoutView.as_view(), name='logout'),
-    path('accounts/', include('django.contrib.auth.urls')),
-    path('social-auth/', include('social_django.urls', namespace='social')),
+    path('accounts/', include('allauth.urls')),
 ]
