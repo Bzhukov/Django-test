@@ -17,7 +17,7 @@ def main(request):
     context = {
         'data':data
     }
-    bot = telegram.Bot(token=settings.TELEGRAM_TOKEN)
+    bot = telegram.Bot(token=bot_token)
     asyncio.run(bot.send_message(124987663, data))
 
     return render(request, 'main.html',context)
