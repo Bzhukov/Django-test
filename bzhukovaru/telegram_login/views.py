@@ -19,6 +19,7 @@ def main(request):
 
     context = {
         'data':data,
+        'META': request.META
 
     }
     bot = telegram.Bot(token=bot_token)
@@ -48,6 +49,8 @@ def login(request):
     print(f"{id}, {first_name}")
     context = {
         'id':id,
-        'first_name':first_name
+        'first_name':first_name,
+        'META': request.META
     }
+
     return render(request, 'main.html',context)
