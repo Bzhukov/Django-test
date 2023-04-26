@@ -28,18 +28,13 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 INSTALLED_APPS = [
     'telegram_login',
+    'django_telegram_login',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.telegram',
-
 ]
 
 MIDDLEWARE = [
@@ -126,22 +121,11 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# SOCIAL_AUTH_TELEGRAM_KEY = os.getenv('SOCIAL_AUTH_TELEGRAM_KEY', default=None)
-# SOCIAL_AUTH_TELEGRAM_SECRET = os.getenv('SOCIAL_AUTH_TELEGRAM_SECRET', default=None)
 
-AUTHENTICATION_BACKENDS = (
-    'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend',
-)
-# SOCIAL_AUTH_TELEGRAM_AUTH_EXTRA_ARGUMENTS = {'parse_mode': 'Markdown'}
-# SOCIAL_AUTH_TELEGRAM_BOT_TOKEN =os.getenv('SOCIAL_AUTH_TELEGRAM_KEY', default=None)
-
-SITE_ID = 1
-
-SOCIALACCOUNT_PROVIDERS = {
-    'telegram': {
-        'TOKEN': '6062384373:AAE1v-WS0EVMvh8R9wn-BCtLIBZVgl-kTrg'
-    }
-}
 
 LOGIN_URL_REDIRECT = 'telegram-login:main'
+
+
+TELEGRAM_BOT_NAME = 'bzhukovaru_bot'
+TELEGRAM_BOT_TOKEN = '6062384373:AAE1v-WS0EVMvh8R9wn-BCtLIBZVgl-kTrg'
+TELEGRAM_LOGIN_REDIRECT_URL = 'telegram-login:main'
