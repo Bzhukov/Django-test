@@ -18,4 +18,12 @@ def login(request):
         username=request.GET.get('username')
         auth_date =request.GET.get('auth_date')
         hash=request.GET.get('hash')
+    if request.POST:
+        id = request.POST.get('id')
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        username = request.POST.get('username')
+        auth_date = request.POST.get('auth_date')
+        hash = request.POST.get('hash')
+    print(f"{id}, {first_name}")
     return f"{id}, {first_name}"
