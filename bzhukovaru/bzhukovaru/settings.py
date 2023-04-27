@@ -53,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'telega.hand_log.RequestLoggingMiddleware',
 ]
 
 ROOT_URLCONF = 'bzhukovaru.urls'
@@ -129,26 +130,47 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'handlers': {
+#         'console': {
+#             'class': 'logging.StreamHandler',
+#         },
+#         'file': {
+#             'class': 'logging.FileHandler',
+#             'filename': 'cors.log',
+#         },
+#     },
+#     'loggers': {
+#         'django.middleware.csrf': {
+#             'handlers': ['console', 'file'],
+#             'level': 'INFO',
+#         },
+#         'corsheaders': {
+#             'handlers': ['console', 'file'],
+#             'level': 'INFO',
+#         },
+#     },
+# }
+
+
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
     'handlers': {
-        'console': {
-            'class': 'logging.StreamHandler',
-        },
         'file': {
+            'level': 'INFO',
             'class': 'logging.FileHandler',
-            'filename': 'cors.log',
+            'filename': 'logfile.log',
         },
     },
     'loggers': {
-        'django.middleware.csrf': {
-            'handlers': ['console', 'file'],
-            'level': 'DEBUG',
-        },
-        'corsheaders': {
-            'handlers': ['console', 'file'],
-            'level': 'DEBUG',
+        'django': {
+            'handlers': ['file'],
+            'level': 'INFO',
+            'propagate': True,
         },
     },
 }
