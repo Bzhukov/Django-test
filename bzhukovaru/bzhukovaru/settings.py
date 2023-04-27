@@ -15,7 +15,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
@@ -25,11 +24,10 @@ SECRET_KEY = 'django-insecure-_5lstiw196mh7)cd0q&4&3#)pza301=!g_t_c*v7jij&d9===l
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-
 ALLOWED_HOSTS = ['*']
 # CORS_ALLOWED_ORIGINS = ['*']
 CORS_ORIGIN_ALLOW_ALL = True
-CORS_ALLOWED_ORIGIN_REGEXES =['*']
+CORS_ALLOWED_ORIGIN_REGEXES = ['*']
 CORS_ALLOW_CREDENTIALS = True
 
 # Application definition
@@ -61,7 +59,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATES_DIR,],
+        'DIRS': [TEMPLATES_DIR, ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -76,7 +74,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'bzhukovaru.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
@@ -86,7 +83,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -106,7 +102,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
@@ -118,7 +113,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
@@ -128,7 +122,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
 
 # LOGGING = {
 #     'version': 1,
@@ -153,20 +146,51 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #         },
 #     },
 # }
-
+#
+#
+#
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'handlers': {
+#         'file': {
+#             'level': 'INFO',
+#             'class': 'logging.FileHandler',
+#             'filename': 'logfile.log',
+#         },
+#     },
+#     'loggers': {
+#         'django': {
+#             'handlers': ['file'],
+#             'level': 'INFO',
+#             'propagate': True,
+#         },
+#     },
+# }
 
 
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
     'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
         'file': {
-            'level': 'INFO',
             'class': 'logging.FileHandler',
             'filename': 'logfile.log',
+            'level': 'INFO',
         },
     },
     'loggers': {
+        'django.middleware.csrf': {
+            'handlers': ['console', 'file'],
+            'level': 'INFO',
+        },
+        'corsheaders': {
+            'handlers': ['console', 'file'],
+            'level': 'INFO',
+        },
         'django': {
             'handlers': ['file'],
             'level': 'INFO',
