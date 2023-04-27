@@ -16,13 +16,12 @@ SECRET_KEY = 'django-insecure-m$6dl&*qb82x000z2umb^$5w9s^4ug22_2+%_rv&!q!9t#ak$v
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-CORS_ALLOWED_ORIGINS = ['*']
+# CORS_ALLOWED_ORIGINS = ['*']
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOWED_ORIGIN_REGEXES =['*']
 # Application definition
 
 INSTALLED_APPS = [
-    "debug_toolbar",
     'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -54,7 +53,6 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
-                'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
@@ -65,10 +63,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'bzhukovaru.wsgi.application'
 
-INTERNAL_IPS = [
-    "bzhukovaru.azurewebsites.net",
-    "127.0.0.1",
-]
+
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
