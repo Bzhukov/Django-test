@@ -69,7 +69,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'bzhukovaru.wsgi.application'
 
 INTERNAL_IPS = [
-    "https://bzhukovaru.azurewebsites.net",
+    "bzhukovaru.azurewebsites.net",
     "127.0.0.1",
 ]
 # Database
