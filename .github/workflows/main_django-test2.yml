@@ -26,7 +26,8 @@ jobs:
         run: |
           python -m venv venv
           source venv/bin/activate
-      
+          echo "TELEGRAM_TOKEN=${{ secrets.TELEGRAM_TOKEN }}" >> .env
+
       - name: Install dependencies
         run: pip install -r requirements.txt
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
@@ -39,9 +40,7 @@ jobs:
             . 
             !venv/
 
-      - name: Creating .env file
-        run: |
-          echo "TELEGRAM_TOKEN=${{ secrets.TELEGRAM_TOKEN }}" >> .env
+      
   
 
   deploy:
