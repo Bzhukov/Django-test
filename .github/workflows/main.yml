@@ -33,4 +33,4 @@ jobs:
           docker build -t cr.yandex/crpt5n1ucdvd5ncc3n63/Django-test .
       - name: Push Docker Image
         run: |
-          docker push cr.yandex/crpt5n1ucdvd5ncc3n63/Django-test
+          docker push cr.yandex/crpt5n1ucdvd5ncc3n63/Django-test:latest
